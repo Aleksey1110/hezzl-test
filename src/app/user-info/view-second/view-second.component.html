@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <mat-select placeholder="Choose player">
+      <mat-option *ngFor="let user of remoteUsers" [value]="user.playerName" (click)="passId(user.playerId)">
+        {{user.playerName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div fxLayoutAlign="center center" *ngIf="choosenUser">
+  <mat-card fxLayout="column" fxFlex="40%">
+    <mat-card-title>
+      Player Name: {{choosenUser.playerName}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      Player Id: {{choosenUser.playerId}}
+    </mat-card-subtitle>
+    <mat-card-content fxLayout="column">
+      <p>Player Email: {{choosenUser.playerEmail}}</p>
+      <p>Player Phone: {{choosenUser.playerPhone}}</p>
+      <p>Player Gender: {{choosenUser.playerGender}}</p>
+      <p>Player City: {{choosenUser.playerCity}}</p>
+      <p>Player Score: {{choosenUser.playerScore}}</p>
+      <p>Player Coins: {{choosenUser.playerCoins}}</p>
+      <p>Player Ip: {{choosenUser.ip}}</p>
+      <p>Player Registartion date: {{choosenUser.createdAt | date}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

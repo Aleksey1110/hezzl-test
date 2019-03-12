@@ -1,0 +1,22 @@
+<mat-accordion>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let user of remoteUsers">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{user.playerName}}
+      </mat-panel-title>
+      <mat-panel-description fxLayoutAlign="end center">
+        View all infomation about user
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Player Email: {{user.playerEmail}}</p>
+    <p>Player Phone: {{user.playerPhone}}</p>
+    <p>Player Gender: {{user.playerGender}}</p>
+    <p>Player City: {{user.playerCity}}</p>
+    <p>Player Score: {{user.playerScore}}</p>
+    <p>Player Coins: {{user.playerCoins}}</p>
+    <p>Player Ip: {{user.ip}}</p>
+    <p>Player Registartion date: {{user.createdAt | date}}</p>
+  </mat-expansion-panel>
+
+</mat-accordion>

@@ -1,0 +1,43 @@
+<div fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="playerName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playerId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Id </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playerEmail">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Email </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerEmail}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playerPhone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Phone </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerPhone}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playerScore">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Score </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerScore}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playerCoins">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player Coins </th>
+    <td mat-cell *matCellDef="let user"> {{user.playerCoins}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator #paginator [pageSize]="1" [pageSizeOptions]="[1, 5, 10, 20]" showFirstLastButtons></mat-paginator>
